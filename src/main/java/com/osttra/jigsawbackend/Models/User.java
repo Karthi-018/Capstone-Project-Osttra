@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Component
 @Entity
+@Table(name="JigsawUser")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +28,10 @@ public class User {
     long clientID;
     String email;
     String userType;
-    @OneToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "user")
     List<Role> roles;
     @ManyToMany(mappedBy="users")
     List<UserGroup> groups;
-    @OneToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "user")
     List<Permission> permissions;
 }

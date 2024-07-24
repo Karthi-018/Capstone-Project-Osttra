@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AttributeValueDTO {
-    private int id;
     private String value;
     private int atId; 
 }

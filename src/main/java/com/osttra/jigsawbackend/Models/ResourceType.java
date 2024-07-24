@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -31,6 +32,6 @@ public class ResourceType {
     @CollectionTable(name = "available_permissions", joinColumns = @JoinColumn(name = "rtID"))
     @Column(name = "available_permission")
     List<String> avl_permissions;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     List<Resource> res;
 }

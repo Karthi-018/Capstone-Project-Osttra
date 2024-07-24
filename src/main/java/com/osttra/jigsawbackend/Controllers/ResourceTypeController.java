@@ -37,9 +37,9 @@ public class ResourceTypeController {
     public ResourceType getResourceTypeByID(@PathVariable int param) {
         return service.getResourceTypeByID(param);
     }
-    @PutMapping("/ResourceType/{id}")
-    public String updateResourceType(@RequestBody ResourceType rt) {   
-        service.updateResourceType(rt);
+    @PostMapping("/ResourceType/{id}")
+    public String updateResourceType(@RequestBody ResourceType rt,@PathVariable int id) {   
+        service.updateResourceType(rt,id);
         return "successfully updated";
     }
     @DeleteMapping("/ResourceType/{id}")

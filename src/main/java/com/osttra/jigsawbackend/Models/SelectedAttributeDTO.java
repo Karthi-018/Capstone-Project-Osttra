@@ -1,16 +1,21 @@
 package com.osttra.jigsawbackend.Models;
-
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+@Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AttributeDTO {
+public class SelectedAttributeDTO {
+   
+    private int satID;
+
     private String name;
-    private int resId;
-    private List<AttributeValueDTO> values;
+
+    private List<SelectedAttributeValueDTO> values;
+  
 }
+
